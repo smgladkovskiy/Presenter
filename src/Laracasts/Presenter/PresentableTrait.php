@@ -21,7 +21,7 @@ trait PresentableTrait {
 	{
 		if ( ! $this->presenterInstance)
 		{
-			$this->presenterInstance = \App::make($this->presenter);
+			$this->presenterInstance = $this->presenter(\App::make($this));
 		}
 
 		return $this->presenterInstance;
