@@ -19,9 +19,11 @@ trait PresentableTrait {
 	 */
 	public function present()
 	{
+
 		if ( ! $this->presenterInstance)
 		{
-			$this->presenterInstance = $this->presenter(\App::make($this));
+			$this->presenterInstance = \App::make($this->presenter);
+			$this->presenterInstance->setEntity($this);
 		}
 
 		return $this->presenterInstance;

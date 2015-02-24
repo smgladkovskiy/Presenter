@@ -10,7 +10,7 @@ abstract class Presenter {
 	/**
 	 * @param $entity
 	 */
-	function __construct($entity)
+	function __construct($entity = null)
 	{
 		$this->entity = $entity;
 	}
@@ -29,6 +29,11 @@ abstract class Presenter {
 		}
 
 		return $this->entity->{$property};
+	}
+
+	public function setEntity($entity)
+	{
+		$this->entity = $entity;
 	}
 
 } 
