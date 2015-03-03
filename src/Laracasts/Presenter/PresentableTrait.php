@@ -24,6 +24,7 @@ trait PresentableTrait {
 		{
 			$this->presenterInstance = \App::make($this->presenter);
 			$this->presenterInstance->setEntity($this);
+			$this->locale = $this->translations->where('lang',\App::getLocale())->first();
 		}
 
 		return $this->presenterInstance;
