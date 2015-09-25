@@ -10,7 +10,7 @@ abstract class Presenter {
 	/**
 	 * @param $entity
 	 */
-	function __construct($entity)
+	function __construct($entity = null)
 	{
 		$this->entity = $entity;
 	}
@@ -65,6 +65,11 @@ abstract class Presenter {
 		}
 
 		throw new \Exception("Method not found on presenter or its entity.");
+	}
+
+	public function setEntity($entity)
+	{
+		$this->entity = $entity;
 	}
 
 }

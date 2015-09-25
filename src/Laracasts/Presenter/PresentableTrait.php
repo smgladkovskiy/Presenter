@@ -31,7 +31,10 @@ trait PresentableTrait {
 
 		if ( ! $this->presenterInstance)
 		{
-			$this->presenterInstance = new $this->presenter($this);
+			$this->presenterInstance = \App::make($this->presenter);
+			$this->presenterInstance->setEntity($this);
+			if(isset($this->translations))
+				$this->locale = $this->translations->where('lang',\App::getLocale())->first();
 		}
 
 		return $this->presenterInstance;
